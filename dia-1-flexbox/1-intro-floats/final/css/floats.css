@@ -1,0 +1,104 @@
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after
+ */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: 	#381010;
+}
+
+.contenedor {
+  width: 97%;
+  max-width: 1200px;
+  margin: 0 auto;
+  float: none;
+  background-color: #fff;
+}
+
+div img {
+  width: 100%;
+  max-width: 250px;
+}
+
+/* sistema de reticula */
+/* Formula de clear */
+.fila::after {
+  content:"";
+  display: table;
+  clear: both;
+}
+
+/* Mobile first */
+
+[class*='col-'] {
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+  min-height: 1px;
+}
+
+.col-1-2,
+.col-1-4 {
+  background-color: #7e7863;
+}
+
+.col-2 {
+  background-color: #ad7d37;
+}
+
+.col-3 {
+  background-color: #2e557c;
+}
+
+.col-4 {
+  background-color: #334e30;
+}
+
+/* Consulta de medios (media queries) */
+
+/* Mobile horizontal */
+@media only screen and (min-width: 480px) {
+  [class*='col-'] {
+    margin-right: 0px;
+    min-height: 1px;
+    float: left;
+  }
+
+  .col-1-2,
+  .col-2{
+  width: 44%;
+  }
+
+  .col-1-4,
+  .col-3,
+  .col-4 {
+    width: 92%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .col-1-2,
+  .col-1-4 {
+    width: 20%;
+  }
+
+  .col-2 {
+    width: 44%;
+  }
+
+  .col-3 {
+    width: 68%;
+  }
+}
